@@ -1,0 +1,28 @@
+# 转发端口
+adb forward tcp:27042 tcp:27042
+adb forward tcp:27043 tcp:27043
+
+# 列举出来所有连接到电脑上的设备
+frida-ls-devices
+
+# 连接到指定设备
+frida-ps -D tcp
+
+# 列举出来设备上的所有进程
+frida-ps -U
+
+# 列举出来设备上的所有应用程序
+frida-ps -Ua
+
+# 列举出来设备上的所有已安装应用程序和对应的名字
+frida-ps -Uai
+
+# -u -f 包名 <===> -UF
+
+# 跟踪某个函数
+frida-trace -U -f Name -i "函数名"
+# frida-trace -U -f com.autonavi.minimap -i "getRequestParams"
+
+# 跟踪某个方法
+frida-trace -U -f Name -m "方法名"
+# frida-trace -U -f com.autonavi.minimap -m "MapLoader"
